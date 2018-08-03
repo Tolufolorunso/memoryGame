@@ -30,4 +30,4 @@ The game board consists of 16 cards and orgized in a grid. you are to turn hidde
 
 ## Outro
 
-The game came be played [here](https://www.github.com)
+You can fork it to play the game.
