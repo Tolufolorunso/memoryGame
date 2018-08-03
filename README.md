@@ -25,3 +25,9 @@ The game board consists of 16 cards and orgized in a grid. you are to turn hidde
 1. find two cards with identical face
 2. if found, the two cards stay flipped over.
 3. if not, the cards are flipped face down.
+
+
+
+## Outro
+
+The game came be played [here](https://www.github.com)
