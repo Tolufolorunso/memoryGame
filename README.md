@@ -17,6 +17,7 @@ A very big thanks to stackoverflow.com for helping me out with the shuffle funct
 Thanks to fontawesome.com for the vector icon.
 I appreciate my wife for her endurance. i dont have her time again.
 
+Thanks to icon-icons.com for using one their icons
 
 ### How To play The Game.
 
