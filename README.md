@@ -31,4 +31,4 @@ The game board consists of 16 cards and orgized in a grid. you are to turn hidde
 
 ## Outro
 
-You can fork it to play the game.
+You can fork it to play the game or play it online [here](https://tolufolorunso.github.io/memoryGame/).
