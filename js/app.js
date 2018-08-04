@@ -1,5 +1,4 @@
 'strict mode'
-//alert('go')
 
 //Global variables
 
@@ -27,7 +26,6 @@ const cardLists = document.querySelectorAll('.card');
 
 
 listParent.addEventListener('click', init, false);
-//console.log(cardLists);
 
 //shuffle cards
 shuffleRandomly(listParent);
@@ -39,8 +37,7 @@ addEventListener('click', init);
 function init(e) {
     //using event delegation to know which card clicked
     let cards = e.target;
-    if (cards.className == 'card') {
-        //console.log(cards);
+    if (cards.className == 'card') { 
         cardToggling(cards); //invoking cardToggling()
         checkCard(cards); //invoking checkCard()
         moveCounter();
@@ -56,10 +53,8 @@ function cardToggling(cards) {
 
 function checkCard(cards) {
     openCards.push(cards)
-    //console.log(openCards);
     //check if the length of the array is two
     if (openCards.length === 2) {
-        //console.log('no');
         matchCard();
     }
 }
@@ -68,8 +63,9 @@ function checkCard(cards) {
 
 function matchCard() {
     //check to see if the card matched
-    if (openCards[0].lastElementChild.classList[1] === openCards[1].lastElementChild.classList[1]) {
-        //console.log('match');
+    let cardOne = openCards[0].lastElementChild.classList[1];
+    let cardTwo = openCards[1].lastElementChild.classList[1];
+    if (cardOne === cardTwo) {
         openCards[0].classList.toggle('match');
         openCards[1].classList.toggle('match');
         //if they matched add .open and .face classes to the specific card 
@@ -79,6 +75,8 @@ function matchCard() {
         openCards = [];
         //increment the matchedCrdsMove by 1
         totalMatchedMove++;
+        
+        //check to see if total matched equal 8
         if (totalMatchedMove == 8) {
             stopTimer();
             gameOver();
@@ -87,7 +85,6 @@ function matchCard() {
         setTimeout(notMatch, 500);
 
         function notMatch() {
-            //console.log('not match');
             cardToggling(openCards[0]);
             cardToggling(openCards[1]);
             openCards = [];
@@ -96,16 +93,15 @@ function matchCard() {
 
 }
 
+//------------------move counter-------------------
 
 
 function moveCounter() {
     moveCounters++;
     rating()
     if (moveCounters == 1) {
-        //sec = 0;
         startTimer();
     }
-    //console.log(moveCounters);
     moves.textContent = moveCounters;
 }
 
@@ -115,20 +111,13 @@ function moveCounter() {
 let stars = 3;
 
 function rating() {
-    for (let i = 0; i < ratingStar.length; i++) {
-        if (moveCounters > 28) {
-            if (i > 1) {
-                ratingStar[i].style.visibility = 'hidden';
-            }
-            stars = 2;
-        } else if (moveCounters > 20) {
-            if (i > 0) {
-                ratingStar[i].style.visibility = 'hidden';
-            }
-            stars = 1;
-        }
+    if (moveCounters > 40) {
+        ratingStar[1].style.visibility = "hidden";
+        stars = 1;
+    } else if (moveCounters > 30) {
+        ratingStar[2].style.visibility = "hidden";
+        stars = 2;
     }
-
 }
 
 
@@ -145,10 +134,8 @@ function startTimer() {
         }
         sec = sec < 10 ? '0' + sec : sec;
         displaytimer.textContent = `${mins}m ${sec}s`;
-        //console.log(sec);
     }, 1000);
 }
-
 
 
 function stopTimer() {
@@ -162,10 +149,9 @@ function gameOver() {
     const gameWonTimeDislay = document.querySelector('.gameWontimeDislay');
     const rating = document.querySelector('.rating');
     let faStar = document.createElement('i');
-    //console.log(stars);
+    
     faStar.classList.add('fa', 'fa-star');
-    move.textContent = moveCounters + 1; //totalMove
-    console.log(moveCounters);
+    move.textContent = moveCounters + 1; 
     rating.textContent = stars;
     gameWonTimeDislay.textContent = `${mins} mins  ${sec} secs`;
     rating.appendChild(faStar);
